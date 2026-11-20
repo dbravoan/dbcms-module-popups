@@ -1,0 +1,69 @@
+{
+    "name": "dbravoan/dbcms-module-popups",
+    "type": "dbcms-module",
+    "description": "Editorial popups and announcement overlays using shared dbCMS blocks and privacy controls",
+    "license": "MIT",
+    "require": {
+        "dbravoan/dbcms-core": "~0.0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "DbCms\\Modules\\Popups\\": "./"
+        }
+    },
+    "extra": {
+        "dbcms": {
+            "identifier": "popups",
+            "name": "Popups",
+            "author": "dbCMS Core Team",
+            "provider": "DbCms\\Modules\\Popups\\PopupsModuleServiceProvider",
+            "repository": "https://github.com/dbravoan/dbcms-module-popups",
+            "morphs": {
+                "popup": "DbCms\\Modules\\Popups\\Models\\Popup"
+            },
+            "permissions": [
+                "manage:popups"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "scripts": {
+        "fixture:lock": "@php tooling/package.php fixture:lock",
+        "prepare": "@php tooling/package.php prepare",
+        "test": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php tooling/package.php test"
+        ],
+        "check": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php tooling/package.php check"
+        ],
+        "test:dist": [
+            "Composer\\Config::disableProcessTimeout",
+            "@php tooling/package.php test:dist"
+        ],
+        "profiles": "@php tooling/package.php profiles"
+    },
+    "archive": {
+        "exclude": [
+            "/.build",
+            "/.github",
+            "/.gitignore",
+            "/.gitattributes",
+            "/tests",
+            "/tooling",
+            "/docker",
+            "/AGENTS.md",
+            "/compose.yaml",
+            "/pint.json",
+            "/phpunit.xml",
+            "/.node-version",
+            "/.dockerignore",
+            "/.env",
+            "/.env.*",
+            "/node_modules",
+            "/vendor"
+        ]
+    }
+}

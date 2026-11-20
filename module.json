@@ -1,0 +1,5 @@
+{
+    "author": "dbCMS Core Team",
+    "permissions": ["manage:popups"],
+    "settings": {}
+}
